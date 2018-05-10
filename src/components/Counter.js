@@ -12,19 +12,24 @@ class Counter extends React.Component {
                 'value',
                 //snapshot to aktualna migawka z bazy danych w momencie zajścia eventu 'once'
                 (snapshot) => {
-                    this.setState({
-                            counter: snapshot.val()
-                        })
+                    this.setState({counter: snapshot.val()})
                 }
             )//jest to metoda która wygląda jak addEventListener, to tak jak byśmy mówili: słuchaj jeden raz
     }
+
+
+    //to tutaj chcemy wkładac nowe dane:
+    //to wystarczy zaby zapisać dane w bazie!!!:
+    saveToDb = (data) => database.ref('/counter').set(data)
+
 
     render() {
         return (
             <div>
                 <h1>{this.state.counter}</h1>
-                <button onClick={()=>{}}>-</button>
-                <button onClick={()=>{}}>+</button>
+                <button onClick={()=>this.saveToDb(this.state.counter -1)}>-</button>
+                <button onClick={()=>this.saveToDb(this.state.counter +1)}>+</button>
+
             </div>
         )
     }
