@@ -1,6 +1,7 @@
 import firebase from 'firebase'
 
 // Initialize Firebase
+//zanim się to zrobi trzeba włączyć bazę danych w naszym projekcie
 const config = {
     apiKey: "AIzaSyBarCU8WYZuW29Lfop60wqoU0rG30SJmIA",
     authDomain: "isa-sandbox-8905.firebaseapp.com",
