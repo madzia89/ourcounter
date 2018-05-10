@@ -1,5 +1,6 @@
 import React from 'react'
 import{database} from '../firebase'
+import RaisedButton from 'material-ui/RaisedButton'
 
 class Counter extends React.Component {
     state = {
@@ -27,8 +28,10 @@ class Counter extends React.Component {
         return (
             <div>
                 <h1>{this.state.counter}</h1>
-                <button onClick={()=>this.saveToDb(this.state.counter -1)}>-</button>
-                <button onClick={()=>this.saveToDb(this.state.counter +1)}>+</button>
+                <RaisedButton backgroundColor={'#8BC34A'}
+                              onClick={()=>this.saveToDb(this.state.counter -1)}>-</RaisedButton>
+                <RaisedButton backgroundColor={'#8BC34A'}
+                    onClick={()=>this.saveToDb(this.state.counter +1)}>+</RaisedButton>
 
             </div>
         )
