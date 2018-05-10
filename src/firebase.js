@@ -1,15 +1,15 @@
+
 import firebase from 'firebase'
 
-// Initialize Firebase
-//zanim się to zrobi trzeba włączyć bazę danych w naszym projekcie
 const config = {
-    apiKey: "AIzaSyBarCU8WYZuW29Lfop60wqoU0rG30SJmIA",
-    authDomain: "isa-sandbox-8905.firebaseapp.com",
-    databaseURL: "https://isa-sandbox-8905.firebaseio.com",
-    projectId: "isa-sandbox-8905",
-    storageBucket: "isa-sandbox-8905.appspot.com",
-    messagingSenderId: "102268586323"
+    apiKey: "AIzaSyCCtBGgJWJa0402SGX225csU2Foq5E84j4",
+    authDomain: "jfddl4-sandbox.firebaseapp.com",
+    databaseURL: "https://jfddl4-sandbox.firebaseio.com",
+    projectId: "jfddl4-sandbox",
+    storageBucket: "jfddl4-sandbox.appspot.com",
+    messagingSenderId: "631328808238"
 }
+
 firebase.initializeApp(config)
 
-export const database = firebase.database() //to nam zwraca obiekt który ma wszystkie metody obsługujące bazę danych, tego obiektu będziemy chcieli używać w innych miejscach w aplikacji dlatego exportujemy to jako zmienną
+export const database = firebase.database()
