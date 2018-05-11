@@ -6,6 +6,7 @@ import {mapObjectToArray} from "../../utils"
 import MenuItem from "material-ui/MenuItem"
 import ChatAppbar from './ChatAppbar'
 import Message from './Message'
+import PaperRedefined from '../PaperRefined'
 
 
 class Chat extends React.Component {
@@ -50,24 +51,31 @@ class Chat extends React.Component {
             <div>
                 <ChatAppbar/>
                 <h1>Tadam</h1>
+                <PaperRedefined centered={true}>
                 <Textfield
                     onChange={this.newMessageChangeHandler}
                     value={this.state.newMessage}
                     fullWidth={true}
                     name={'field for messages'}
                     onKeyPress={(ev) => {
-                        if (ev.key === 'Enter') {
+                        if ((ev.key === 'Enter') && (this.state.newMessage !== '')) {
                             this.addMessageToDb()
                         }
                     }}
                 />
+
                 <RaisedButton
-                    onClick={this.addMessageToDb}
+                    onClick={() => {
+                        if (this.state.newMessage !== '') {
+                            this.addMessageToDb()
+                        }
+                    }}
                     fullWidth={true}
                     backgroundColor={'#8BC34A'}
                     label={'Send'}
                 />
-                <div>
+                </PaperRedefined>
+                <PaperRedefined>
                     {
                         !this.state.messages ?
                             <MenuItem>Ładowanie</MenuItem>
@@ -79,7 +87,7 @@ class Chat extends React.Component {
                                     />
                                 ))
                     }
-                </div>
+                </PaperRedefined>
             </div>
 
         )
