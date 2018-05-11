@@ -5,6 +5,8 @@ import RaisedButton from 'material-ui/RaisedButton'
 import {mapObjectToArray} from "../utils"
 import MenuItem from "material-ui/MenuItem"
 import moment from "moment"
+import ChatAppbar from './ChatAppbar'
+
 
 class Chat extends React.Component {
     state = {
@@ -43,6 +45,7 @@ class Chat extends React.Component {
     render() {
         return (
             <div>
+                <ChatAppbar/>
                 <h1>Tadam</h1>
                 <Textfield
                     onChange={this.newMessageChangeHandler}
