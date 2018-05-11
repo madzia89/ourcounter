@@ -29,11 +29,16 @@ class Chat extends React.Component {
         })
     }
 
-    addMessageToDb = () => database.ref('/chat').push({
-        message: this.state.newMessage,
-        user: this.state.name,
-        timestamp: Date.now()
-    }).then(() => this.setState({newMessage: ""}))
+    addMessageToDb = () => {
+        const newRefForMessage = database.ref('/chat').push()
+
+        newRefForMessage.set({
+            message: this.state.newMessage,
+            user: this.state.name,
+            timestamp: Date.now(),
+            key: newRefForMessage.key 
+        }).then(() => this.setState({newMessage: ""}))
+    }
 
     render() {
         return (
