@@ -1,11 +1,11 @@
 import React from 'react'
-import {database} from '../firebase'
+import {database} from '../../firebase'
 import Textfield from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
-import {mapObjectToArray} from "../utils"
+import {mapObjectToArray} from "../../utils"
 import MenuItem from "material-ui/MenuItem"
-import moment from "moment"
 import ChatAppbar from './ChatAppbar'
+import Message from './Message'
 
 
 class Chat extends React.Component {
@@ -52,6 +52,9 @@ class Chat extends React.Component {
                     value={this.state.newMessage}
                     fullWidth={true}
                     name={'field for messages'}
+                    onKeyPress={(ev) => {
+                        if (ev.key === 'Enter') {this.addMessageToDb()}
+                    }}
                 />
                 <RaisedButton
                     onClick={this.addMessageToDb}
@@ -65,10 +68,9 @@ class Chat extends React.Component {
                             <MenuItem>Ładowanie</MenuItem>
                             :
                             this.state.messages.map(element =>
-                                (<MenuItem key={element.key}>
-                                        <strong>{element.user} </strong>
-                                        {moment(element.timestamp).format('DD-MM, h:mm:ss')} napisał: {element.message}
-                                    </MenuItem>
+                                (<Message
+                                    element={element} //tutaj przekazujemy propsa do message.js
+                                    />
                                 ))
                     }
                 </div>
