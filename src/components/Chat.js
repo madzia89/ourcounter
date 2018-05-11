@@ -36,7 +36,7 @@ class Chat extends React.Component {
             message: this.state.newMessage,
             user: this.state.name,
             timestamp: Date.now(),
-            key: newRefForMessage.key 
+            key: newRefForMessage.key
         }).then(() => this.setState({newMessage: ""}))
     }
 

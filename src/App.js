@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import Counter from './components/Counter'
+// import Counter from './components/Counter'
 import Chat from './components/Chat'
+import Auth from './components/Auth'
 
 class App extends Component {
 
@@ -8,10 +9,10 @@ class App extends Component {
     render() {
 
         return (
-            <div>
-                <Counter/>
+            // dzięki Auth poniżej w zależności od autoryzacji chat będzie się wyświetlać lub nie
+            <Auth>
                 <Chat/>
-            </div>
+            </Auth>
         )
     }
 }
